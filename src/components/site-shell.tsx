@@ -10,12 +10,12 @@ export function whatsappUrl(message = generalMessage) {
   return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 }
 
-const nav = [
+const nav: ReadonlyArray<{ label: string; to: "/" | "/entrega"; hash?: string }> = [
   { label: "Produtos", to: "/", hash: "produtos" },
   { label: "Como comprar", to: "/", hash: "como-comprar" },
   { label: "Tamanhos", to: "/", hash: "tamanhos" },
   { label: "Entrega", to: "/entrega" },
-] as const;
+];
 
 export function Wordmark({ light = false }: { light?: boolean }) {
   return (

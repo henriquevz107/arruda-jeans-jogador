@@ -4,4 +4,4 @@
 - [x] Criar imagens editoriais do catálogo
 - [x] Montar página inicial e catálogo
 - [x] Criar páginas de políticas e entrega
-- [ ] Validar celular, desktop e links do WhatsApp
+- [x] Validar celular, desktop e links do WhatsApp
