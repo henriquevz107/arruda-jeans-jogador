@@ -1,10 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Check, ChevronRight, MessageCircle, PackageCheck, Ruler, ShieldCheck, ShoppingBag, Star } from "lucide-react";
 import { useState } from "react";
-import darkJeans from "@/assets/arruda-dark-jeans.jpg";
-import blueJeans from "@/assets/arruda-blue-jeans.jpg";
-import blackShorts from "@/assets/arruda-black-shorts.jpg";
-import blueShorts from "@/assets/arruda-blue-shorts.jpg";
+import darkJeans from "@/assets/arruda-dark-jeans-jogador.jpg";
+import blueJeans from "@/assets/arruda-blue-jeans-jogador.jpg";
+import blackShorts from "@/assets/arruda-black-shorts-jogador.jpg";
+import blueShorts from "@/assets/arruda-blue-shorts-jogador.jpg";
 import { Button } from "@/components/ui/button";
 import { SiteLayout, whatsappUrl } from "@/components/site-shell";
 
@@ -23,10 +23,10 @@ export const Route = createFileRoute("/")({
 type Product = { name: string; category: string; image: string; description: string; washes: string[] };
 
 const products: Product[] = [
-  { name: "Calça Jeans Reta", category: "Calças Jeans", image: darkJeans, description: "Modelagem reta com visual urbano e denim encorpado.", washes: ["Índigo escuro", "Preto"] },
-  { name: "Calça Jeans Relaxed", category: "Calças Jeans", image: blueJeans, description: "Caimento amplo, confortável e pronto para qualquer corre.", washes: ["Azul médio", "Azul claro"] },
-  { name: "Short Jeans Black", category: "Shorts Jeans", image: blackShorts, description: "Comprimento urbano e construção robusta para o dia a dia.", washes: ["Preto estonado", "Preto"] },
-  { name: "Short Jeans Light", category: "Shorts Jeans", image: blueShorts, description: "Lavagem clara e shape relaxado com presença autêntica.", washes: ["Azul claro", "Azul médio"] },
+  { name: "Calça Jogador Black", category: "Calças Jeans", image: darkJeans, description: "Modelagem ajustada, lavagem estonada, puídos e respingos que marcam presença.", washes: ["Chumbo estonado", "Preto marmorizado"] },
+  { name: "Calça Jogador Ice", category: "Calças Jeans", image: blueJeans, description: "Jeans claro de shape afunilado, efeito acid wash e rasgos na medida.", washes: ["Cinza ice", "Azul gelo"] },
+  { name: "Short Jogador Gold", category: "Shorts Jeans", image: blackShorts, description: "Denim preto destroyed, barra desfiada e cadarço dourado em destaque.", washes: ["Preto estonado", "Chumbo"] },
+  { name: "Short Jogador Destroyed", category: "Shorts Jeans", image: blueShorts, description: "Lavagem acid wash clara, rasgos frontais e acabamento desfiado.", washes: ["Azul gelo", "Azul marmorizado"] },
 ];
 
 function ProductCard({ product }: { product: Product }) {
