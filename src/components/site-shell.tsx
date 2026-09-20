@@ -22,7 +22,7 @@ const nav: ReadonlyArray<{ label: string; to: "/" | "/entrega"; hash?: string }>
 export function Wordmark({ light = false }: { light?: boolean }) {
   return (
     <Link to="/" className="inline-flex items-center" aria-label="ARRUDA JEANS — início">
-      <img src={arrudaLogoUrl} alt="ARRUDA JEANS — Menó das Jogador" className={`h-14 w-14 rounded-full object-cover ${light ? "ring-1 ring-secondary-foreground/20" : "ring-1 ring-border"}`} />
+      <img src={arrudaLogoUrl} alt="ARRUDA JEANS — Menó das Jogador" className={`h-20 w-20 object-cover shadow-md sm:h-24 sm:w-24 ${light ? "ring-1 ring-secondary-foreground/20" : "ring-1 ring-border"}`} />
     </Link>
   );
 }
@@ -31,7 +31,7 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur">
-      <div className="mx-auto grid h-18 max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto grid h-24 max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center px-4 sm:h-28 sm:px-6 lg:px-8">
         <Wordmark />
         <nav className="hidden items-center gap-8 md:flex" aria-label="Navegação principal">
           {nav.map((item) => item.hash ? (
