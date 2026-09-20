@@ -22,7 +22,9 @@ const nav: ReadonlyArray<{ label: string; to: "/" | "/entrega"; hash?: string }>
 export function Wordmark({ light = false }: { light?: boolean }) {
   return (
     <Link to="/" className="inline-flex items-center" aria-label="ARRUDA JEANS — início">
-      <img src={arrudaLogoUrl} alt="ARRUDA JEANS — Menó das Jogador" className={`h-20 w-20 object-cover shadow-md sm:h-24 sm:w-24 ${light ? "ring-1 ring-secondary-foreground/20" : "ring-1 ring-border"}`} />
+      <span className={`grid h-20 w-20 place-items-center overflow-hidden rounded-full border-2 bg-secondary shadow-lg sm:h-24 sm:w-24 ${light ? "border-secondary-foreground/25" : "border-primary"}`}>
+        <img src={arrudaLogoUrl} alt="ARRUDA JEANS — Menó das Jogador" className="h-full w-full scale-105 object-cover" />
+      </span>
     </Link>
   );
 }
