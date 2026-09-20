@@ -1,10 +1,12 @@
 import { Link } from "@tanstack/react-router";
 import { Menu, MessageCircle, ShieldCheck, X } from "lucide-react";
 import { useState, type ReactNode } from "react";
+import logoAsset from "@/assets/arruda-jeans-logo.jpeg.asset.json";
 import { Button } from "@/components/ui/button";
 
 export const whatsappNumber = "5511988439209";
 export const generalMessage = "Olá! Vim pelo site da Arruda Jeans e quero saber mais sobre os produtos.";
+export const arrudaLogoUrl = logoAsset.url;
 
 export function whatsappUrl(message = generalMessage) {
   return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
@@ -19,9 +21,8 @@ const nav: ReadonlyArray<{ label: string; to: "/" | "/entrega"; hash?: string }>
 
 export function Wordmark({ light = false }: { light?: boolean }) {
   return (
-    <Link to="/" className={`leading-none ${light ? "text-background" : "text-foreground"}`} aria-label="ARRUDA JEANS — início">
-      <span className="block font-display text-2xl font-black uppercase">Arruda</span>
-      <span className="block text-[0.58rem] font-bold uppercase tracking-[0.42em] text-primary">Jeans</span>
+    <Link to="/" className="inline-flex items-center" aria-label="ARRUDA JEANS — início">
+      <img src={arrudaLogoUrl} alt="ARRUDA JEANS — Menó das Jogador" className={`h-14 w-14 rounded-full object-cover ${light ? "ring-1 ring-secondary-foreground/20" : "ring-1 ring-border"}`} />
     </Link>
   );
 }

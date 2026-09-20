@@ -6,7 +6,7 @@ import blueJeans from "@/assets/arruda-blue-jeans-jogador.jpg";
 import blackShorts from "@/assets/arruda-black-shorts-jogador.jpg";
 import blueShorts from "@/assets/arruda-blue-shorts-jogador.jpg";
 import { Button } from "@/components/ui/button";
-import { SiteLayout, whatsappUrl } from "@/components/site-shell";
+import { arrudaLogoUrl, SiteLayout, whatsappUrl } from "@/components/site-shell";
 
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [
@@ -58,6 +58,7 @@ function HomePage() {
         <div className="image-shade absolute inset-0 lg:bg-gradient-to-r lg:from-secondary lg:via-secondary/85 lg:to-transparent" />
         <div className="relative mx-auto flex min-h-[calc(100svh-4.5rem)] max-w-7xl items-end px-4 pb-14 pt-28 sm:px-6 sm:pb-20 lg:items-center lg:px-8 lg:py-24">
           <div className="max-w-3xl">
+            <img src={arrudaLogoUrl} alt="Logo ARRUDA JEANS — Menó das Jogador" width={1254} height={1254} className="mb-6 h-32 w-32 rounded-full border-2 border-primary object-cover shadow-xl sm:h-40 sm:w-40" />
             <p className="mb-4 text-xs font-bold uppercase tracking-[0.3em] text-primary">Denim • São Paulo</p>
             <h1 className="text-[clamp(4.5rem,16vw,10rem)] font-black uppercase leading-[0.72]">Arruda<br /><span className="text-primary">Jeans</span></h1>
             <p className="mt-7 text-xl font-semibold sm:text-2xl">Estilo que veste a quebrada.</p>
