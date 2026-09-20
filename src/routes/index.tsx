@@ -20,13 +20,13 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
-type Product = { name: string; category: string; image: string; description: string; washes: string[] };
+type Product = { name: string; category: string; image: string; description: string; washes: string[]; price?: string };
 
 const products: Product[] = [
   { name: "Calça Jogador Black", category: "Calças Jeans", image: darkJeans, description: "Modelagem ajustada, lavagem estonada, puídos e respingos que marcam presença.", washes: ["Chumbo estonado", "Preto marmorizado"] },
   { name: "Calça Jogador Ice", category: "Calças Jeans", image: blueJeans, description: "Jeans claro de shape afunilado, efeito acid wash e rasgos na medida.", washes: ["Cinza ice", "Azul gelo"] },
-  { name: "Short Jogador Gold", category: "Shorts Jeans", image: blackShorts, description: "Denim preto destroyed, barra desfiada e cadarço dourado em destaque.", washes: ["Preto estonado", "Chumbo"] },
-  { name: "Short Jogador Destroyed", category: "Shorts Jeans", image: blueShorts, description: "Lavagem acid wash clara, rasgos frontais e acabamento desfiado.", washes: ["Azul gelo", "Azul marmorizado"] },
+  { name: "Short Jogador Gold", category: "Shorts Jeans", image: blackShorts, description: "Denim preto destroyed, barra desfiada e cadarço dourado em destaque.", washes: ["Preto estonado", "Chumbo"], price: "R$ 135,00" },
+  { name: "Short Jogador Destroyed", category: "Shorts Jeans", image: blueShorts, description: "Lavagem acid wash clara, rasgos frontais e acabamento desfiado.", washes: ["Azul gelo", "Azul marmorizado"], price: "R$ 135,00" },
 ];
 
 function ProductCard({ product }: { product: Product }) {
@@ -40,7 +40,7 @@ function ProductCard({ product }: { product: Product }) {
       </div>
       <div className="pt-5">
         <p className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-primary">{product.category}</p>
-        <div className="mt-2 grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4"><h3 className="min-w-0 text-2xl font-black uppercase">{product.name}</h3><p className="shrink-0 text-xs font-bold uppercase text-muted-foreground">Preço a cadastrar</p></div>
+        <div className="mt-2 grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4"><h3 className="min-w-0 text-2xl font-black uppercase">{product.name}</h3><p className={`shrink-0 font-bold uppercase ${product.price ? "text-xl text-primary" : "text-xs text-muted-foreground"}`}>{product.price ?? "Preço a cadastrar"}</p></div>
         <p className="mt-2 text-sm leading-6 text-muted-foreground">{product.description}</p>
         <div className="mt-4"><p className="text-[0.65rem] font-bold uppercase tracking-widest">Lavagens previstas</p><p className="mt-1 text-sm text-muted-foreground">{product.washes.join(" • ")} — confirmar disponibilidade</p></div>
         <fieldset className="mt-4"><legend className="text-[0.65rem] font-bold uppercase tracking-widest">Escolha o tamanho</legend><div className="mt-2 flex flex-wrap gap-2">{["38", "40", "42", "44", "46"].map((item) => <button key={item} type="button" onClick={() => setSize(item)} aria-pressed={size === item} className={`h-10 min-w-10 border px-3 text-xs font-bold transition-colors ${size === item ? "border-primary bg-primary text-primary-foreground" : "border-border bg-background hover:border-foreground"}`}>{item}</button>)}</div><p className="mt-2 text-[0.68rem] text-muted-foreground">Grade demonstrativa — confirme os tamanhos disponíveis.</p></fieldset>
@@ -53,12 +53,12 @@ function ProductCard({ product }: { product: Product }) {
 function HomePage() {
   return (
     <SiteLayout>
-      <section className="relative min-h-[calc(100svh-4.5rem)] overflow-hidden bg-secondary text-secondary-foreground">
+      <section className="relative min-h-[calc(100svh-6rem)] overflow-hidden bg-secondary text-secondary-foreground sm:min-h-[calc(100svh-7rem)]">
         <img src={darkJeans} alt="Modelo ARRUDA JEANS usando calça jeans escura" width={1024} height={1280} className="absolute inset-0 h-full w-full object-cover object-[58%_35%] opacity-70 sm:object-center lg:left-auto lg:w-[58%] lg:opacity-85" />
         <div className="image-shade absolute inset-0 lg:bg-gradient-to-r lg:from-secondary lg:via-secondary/85 lg:to-transparent" />
-        <div className="relative mx-auto flex min-h-[calc(100svh-4.5rem)] max-w-7xl items-end px-4 pb-14 pt-28 sm:px-6 sm:pb-20 lg:items-center lg:px-8 lg:py-24">
+        <div className="relative mx-auto flex min-h-[calc(100svh-6rem)] max-w-7xl items-end px-4 pb-14 pt-28 sm:min-h-[calc(100svh-7rem)] sm:px-6 sm:pb-20 lg:items-center lg:px-8 lg:py-24">
           <div className="max-w-3xl">
-            <img src={arrudaLogoUrl} alt="Logo ARRUDA JEANS — Menó das Jogador" width={1254} height={1254} className="mb-6 h-32 w-32 rounded-full border-2 border-primary object-cover shadow-xl sm:h-40 sm:w-40" />
+            <img src={arrudaLogoUrl} alt="Logo ARRUDA JEANS — Menó das Jogador" width={1254} height={1254} className="mb-6 h-36 w-36 border-2 border-primary object-cover shadow-xl sm:h-44 sm:w-44" />
             <p className="mb-4 text-xs font-bold uppercase tracking-[0.3em] text-primary">Denim • São Paulo</p>
             <h1 className="text-[clamp(4.5rem,16vw,10rem)] font-black uppercase leading-[0.72]">Arruda<br /><span className="text-primary">Jeans</span></h1>
             <p className="mt-7 text-xl font-semibold sm:text-2xl">Estilo que veste a quebrada.</p>
