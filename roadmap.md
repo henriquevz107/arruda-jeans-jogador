@@ -7,3 +7,5 @@
 - [x] Validar celular, desktop e links do WhatsApp
 - [x] Harmonizar o visual com a nova logo e ampliar a logo quadrada no cabeçalho
 - [x] Aplicar o preço de R$ 135,00 somente aos shorts
+- [x] Corrigir o acabamento circular da logo
+- [x] Usar as fotos reais e nomes correspondentes nos shorts Jogador

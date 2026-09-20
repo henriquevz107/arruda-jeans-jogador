@@ -3,8 +3,10 @@ import { Check, ChevronRight, MessageCircle, PackageCheck, Ruler, ShieldCheck, S
 import { useState } from "react";
 import darkJeans from "@/assets/arruda-dark-jeans-jogador.jpg";
 import blueJeans from "@/assets/arruda-blue-jeans-jogador.jpg";
-import blackShorts from "@/assets/arruda-black-shorts-jogador.jpg";
-import blueShorts from "@/assets/arruda-blue-shorts-jogador.jpg";
+import blackWhiteShortsAsset from "@/assets/short-jogador-black-cordao-branco.jpeg.asset.json";
+import graphiteShortsAsset from "@/assets/short-jogador-grafite-destroyed.jpeg.asset.json";
+import blackGoldShortsAsset from "@/assets/short-jogador-black-yellow.jpeg.asset.json";
+import blackGoldSplashShortsAsset from "@/assets/short-jogador-black-yellow-splash.jpeg.asset.json";
 import { Button } from "@/components/ui/button";
 import { arrudaLogoUrl, SiteLayout, whatsappUrl } from "@/components/site-shell";
 
@@ -25,8 +27,10 @@ type Product = { name: string; category: string; image: string; description: str
 const products: Product[] = [
   { name: "Calça Jogador Black", category: "Calças Jeans", image: darkJeans, description: "Modelagem ajustada, lavagem estonada, puídos e respingos que marcam presença.", washes: ["Chumbo estonado", "Preto marmorizado"] },
   { name: "Calça Jogador Ice", category: "Calças Jeans", image: blueJeans, description: "Jeans claro de shape afunilado, efeito acid wash e rasgos na medida.", washes: ["Cinza ice", "Azul gelo"] },
-  { name: "Short Jogador Gold", category: "Shorts Jeans", image: blackShorts, description: "Denim preto destroyed, barra desfiada e cadarço dourado em destaque.", washes: ["Preto estonado", "Chumbo"], price: "R$ 135,00" },
-  { name: "Short Jogador Destroyed", category: "Shorts Jeans", image: blueShorts, description: "Lavagem acid wash clara, rasgos frontais e acabamento desfiado.", washes: ["Azul gelo", "Azul marmorizado"], price: "R$ 135,00" },
+  { name: "Short Jogador Black White", category: "Shorts Jeans", image: blackWhiteShortsAsset.url, description: "Jeans preto destroyed com respingos claros, barra desfiada e cordão branco.", washes: ["Preto estonado"], price: "R$ 135,00" },
+  { name: "Short Jogador Grafite Destroyed", category: "Shorts Jeans", image: graphiteShortsAsset.url, description: "Lavagem grafite marmorizada, recortes destroyed e acabamento desfiado.", washes: ["Grafite ice"], price: "R$ 135,00" },
+  { name: "Short Jogador Black Gold", category: "Shorts Jeans", image: blackGoldShortsAsset.url, description: "Jeans preto com puídos, respingos e cordão amarelo em destaque.", washes: ["Preto estonado"], price: "R$ 135,00" },
+  { name: "Short Jogador Black Gold Splash", category: "Shorts Jeans", image: blackGoldSplashShortsAsset.url, description: "Modelo preto destroyed com respingos brancos, barra desfiada e detalhes amarelos.", washes: ["Preto intenso"], price: "R$ 135,00" },
 ];
 
 function ProductCard({ product }: { product: Product }) {
@@ -35,8 +39,8 @@ function ProductCard({ product }: { product: Product }) {
   return (
     <article className="group border-b border-border pb-8">
       <div className="relative aspect-[4/5] overflow-hidden bg-muted">
-        <img src={product.image} alt={`Modelo vestindo ${product.name}`} loading="lazy" width={1024} height={1280} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]" />
-        <span className="absolute left-3 top-3 bg-secondary px-3 py-1.5 text-[0.62rem] font-bold uppercase tracking-widest text-secondary-foreground">Catálogo demonstrativo</span>
+        <img src={product.image} alt={`Foto do ${product.name}`} loading="lazy" width={1024} height={1280} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]" />
+        <span className="absolute left-3 top-3 bg-secondary px-3 py-1.5 text-[0.62rem] font-bold uppercase tracking-widest text-secondary-foreground">Modelo Jogador</span>
       </div>
       <div className="pt-5">
         <p className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-primary">{product.category}</p>
@@ -58,7 +62,9 @@ function HomePage() {
         <div className="image-shade absolute inset-0 lg:bg-gradient-to-r lg:from-secondary lg:via-secondary/85 lg:to-transparent" />
         <div className="relative mx-auto flex min-h-[calc(100svh-6rem)] max-w-7xl items-end px-4 pb-14 pt-28 sm:min-h-[calc(100svh-7rem)] sm:px-6 sm:pb-20 lg:items-center lg:px-8 lg:py-24">
           <div className="max-w-3xl">
-            <img src={arrudaLogoUrl} alt="Logo ARRUDA JEANS — Menó das Jogador" width={1254} height={1254} className="mb-6 h-36 w-36 border-2 border-primary object-cover shadow-xl sm:h-44 sm:w-44" />
+            <div className="mb-6 h-36 w-36 overflow-hidden rounded-full border-4 border-primary bg-secondary shadow-xl sm:h-44 sm:w-44">
+              <img src={arrudaLogoUrl} alt="Logo ARRUDA JEANS — Menó das Jogador" width={1254} height={1254} className="h-full w-full scale-105 object-cover" />
+            </div>
             <p className="mb-4 text-xs font-bold uppercase tracking-[0.3em] text-primary">Denim • São Paulo</p>
             <h1 className="text-[clamp(4.5rem,16vw,10rem)] font-black uppercase leading-[0.72]">Arruda<br /><span className="text-primary">Jeans</span></h1>
             <p className="mt-7 text-xl font-semibold sm:text-2xl">Estilo que veste a quebrada.</p>
